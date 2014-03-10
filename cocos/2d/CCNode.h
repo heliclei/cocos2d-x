@@ -838,7 +838,7 @@ public:
     /**
      * Returns a name that is used to identify the node easily.
      *
-     * You can set name to node then identify them easily.
+     * You can set names to node then identify them easily.
      @code
  
      // set name
@@ -853,13 +853,13 @@ public:
      player = parent->getChildByName("player")
      @endcode
      *
-     * @return A C string that identifies the node.
+     * @return A string that identifies the node.
      */
     virtual std::string& getName();
     /**
-     * Changes the string TAG that is used to identify the node easily.
+     * Changes the name that is used to identify the node easily.
      *
-     * Please refer to getLabel for the sample code.
+     * Please refer to getName for the sample code.
      *
      * @param name  A  string that indentifies the node.
      */
