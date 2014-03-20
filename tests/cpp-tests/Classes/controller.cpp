@@ -245,7 +245,7 @@ void TestController::addConsoleAutoTest()
 {
     auto console = Director::getInstance()->getConsole();
     
-    static struct Console::Command autotest = {
+    struct Console::Command autotest = {
         "autotest", 
         "testcpp autotest command, use -h to list available tests", 
         [](int fd, const std::string& args) 
