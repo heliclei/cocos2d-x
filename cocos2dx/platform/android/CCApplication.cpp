@@ -119,6 +119,26 @@ ccLanguageType CCApplication::getCurrentLanguage()
     return ret;
 }
 
+void CCApplication::openURL(const char* pszUrl)
+{
+    JniMethodInfo minfo;
+	
+    if(!JniHelper::getStaticMethodInfo(minfo,
+									  "org/cocos2dx/lib/Cocos2dxFragmentActivity",
+									  "openURL",
+									  "(Ljava/lang/String;)V"))
+    {
+    	CCLOG("%s %d: error to get methodInfo", __FILE__, __LINE__);
+    }
+    else
+    {
+        jstring StringArg1 = minfo.env->NewStringUTF(pszUrl);
+        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, StringArg1);
+        minfo.env->DeleteLocalRef(StringArg1);
+        minfo.env->DeleteLocalRef(minfo.classID);
+    }
+}
+
 TargetPlatform CCApplication::getTargetPlatform()
 {
     return kTargetAndroid;
